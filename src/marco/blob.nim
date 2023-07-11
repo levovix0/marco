@@ -1,4 +1,3 @@
-{.experimental: "codeReordering".}
 import bitops
 import tables
 
@@ -11,7 +10,7 @@ type
   Slots32*[T] = distinct TSlots32[T]
   TSlots32[T] = Table[T, seq[Slot32]]
 
-proc skip*(b: var Blob, n: int) {.inline.} =
+proc skip*(b: var Blob, n: int) =
   let pos = b.string.len
   b.string.setLen(pos + n)
   for i in pos ..< b.string.len:
