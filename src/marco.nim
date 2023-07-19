@@ -10,10 +10,10 @@ proc marco(input: string = "", output: string = "", quiet = false) =
       echo "write manifest file to stdin (press ctrl+d to finish)"
   var input =
     if input == "": stdin.newFileStream
-    else: input.openFileStream
+    else: input.openFileStream(fmRead)
   var output =
     if output == "": stdout.newFileStream
-    else: output.openFileStream
+    else: output.openFileStream(fmWrite)
 
   output.write input.parseXml.marcoCompile
 
